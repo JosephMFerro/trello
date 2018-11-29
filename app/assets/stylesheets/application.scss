@@ -1,0 +1,20 @@
+@import "semantic-ui";
+
+body {
+  margin: 20px;
+  background-image: url(https://s3-eu-west-1.amazonaws.com/images.danb.me/trello-backgrounds/purple.jpg);
+}
+
+.ui.container {
+  overflow: auto;
+  white-space: nowrap;
+  opacity: 0.6;
+}
+.ui.card {
+  display: inline-block;
+}
+
+.heading {
+  opacity: 0.2;
+  color: white;
+}

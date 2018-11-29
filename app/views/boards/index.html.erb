@@ -1,0 +1,23 @@
+<div class = heading >
+  <h2>Trello</h2>
+  <div class="ui three item menu">
+    <a class="item"><%= link_to nil, new_board_path%>New Board</a>
+    <a class="item">button</a>
+    <a class="item">button</a>
+  </div>
+  <hr/>
+</div>
+
+<% @boards.each do |board| %>
+    <div class="ui card">
+      <div class = "content">
+        <div class="header">
+          <%= board.name %>
+        </div>
+      
+        <%= link_to "Add a list...", new_board_list_path(board) %>
+        <%= link_to "Delete", board, method: :delete, class: "ui basic orange card button"%>
+      </div>
+    </div>
+<% end %> 
+
