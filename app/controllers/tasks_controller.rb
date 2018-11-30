@@ -1,22 +1,24 @@
 class TasksController < ApplicationController
   before_action :set_task, except: [:index, :new, :create]
+  before_action :set_list
+
   def index
     # organize by descending order
-    @tasks = Task.except('order').order("id DESC")
+    @tasks = @list.tasks.except('order').order("id DESC")
   end
 
   def show
   end
 
   def new
-    @task = Task.new
+    @task = @list.tasks.new
   end
 
   def edit
   end
 
   def create
-    @task = Task.new(task_params)
+    @task = @list.tasks.new(task_params)
     if @task.save
       redirect_to tasks_path
     else
@@ -38,6 +40,9 @@ class TasksController < ApplicationController
   end
 
   private
+    def set_list
+      @list = List.find(params[:list_id])
+    end
     def set_task
       @task = Task.find(params[:id])
     end

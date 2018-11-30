@@ -14,10 +14,14 @@
         <div class="header">
           <%= board.name %>
         </div>
-      
+        <hr/>
+        <% board.lists.each do |list| %>
+          <%= link_to list.name, board_list_path(board.id, list.id), class: "ui button" %>
+          <br/>
+          <br/>
+        <% end %>
         <%= link_to "Add a list...", new_board_list_path(board) %>
         <%= link_to "Delete", board, method: :delete, class: "ui basic orange card button"%>
       </div>
     </div>
 <% end %> 
-

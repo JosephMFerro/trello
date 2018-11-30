@@ -1,2 +1,6 @@
-<h1>Lists#show</h1>
-<p>Find me in app/views/lists/show.html.erb</p>
+<div class = "heading">
+  <h2><%= @list.name %></h2>
+  <%= link_to "Add Task...", new_board_list_task_path(@list, :id), class: "ui button" %>
+  <%= link_to "Delete List", board_list_path(@board, @list), method: :delete, class: "ui button" %>
+  <hr/>
+</div>
